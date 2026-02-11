@@ -1,0 +1,12 @@
+// Optional: paste this in Firebase Console > Firestore > Rules
+// to allow your app to read/write generated accounts (sync across browsers).
+// Adjust as needed (e.g. restrict to your domain or add auth later).
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /appConfig/generatedAccounts {
+      allow read, write: if true;
+    }
+  }
+}
